@@ -1,0 +1,36 @@
+# Это обязательное поле говорит, что мод предназначен для загрузчика NeoForge.
+modLoader="javafml"
+
+# Указывает необходимую версию API загрузчика. Gradle подставит значение из loader_version_range.
+# NeoForge требует, чтобы это значение было совместимо с версией 1 или выше.
+loaderVersion="${loader_version_range}"
+
+# Указывает лицензию вашего мода. NeoForge требует это поле.
+# Gradle подставит значение "GNU LGPL 3.0" из вашего gradle.properties.
+license="${mod_license}"
+
+# Секция, описывающая ваш мод. Все значения будут взяты из gradle.properties.
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+description='''
+${mod_description}
+'''
+
+# Раздел зависимостей. Он говорит игре, что ваш мод зависит от Minecraft и NeoForge.
+# Диапазоны версий также будут взяты из gradle.properties.
+[[dependencies.${mod_id}]]
+modId="neoforge"
+mandatory=true
+versionRange="${neo_version_range}"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="minecraft"
+mandatory=true
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
